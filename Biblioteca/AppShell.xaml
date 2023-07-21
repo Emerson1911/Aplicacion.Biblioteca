@@ -5,20 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Biblioteca"
     xmlns:views="clr-namespace:Biblioteca.views"
-    Shell.FlyoutBehavior="Disabled">
+    FlyoutHeaderBehavior="CollapseOnScroll">
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="AliceBlue"
+            <Grid BackgroundColor="Red"
                   HeightRequest="150">
                 <Image Aspect="AspectFill"
                        Source="miya.jpg"
-                       Opacity="0.6"/>
-                <Label Text="Perfil"
+                       Opacity="0.9"/>
+                <Label Text="Biblioteca"
                        TextColor="White"
-                       FontAttributes="Bold"
+                       FontAttributes="Italic"
                        HorizontalTextAlignment="End"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="End"/>
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -27,11 +27,12 @@
                   ContentTemplate="{DataTemplate views:Inicio}"/>
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-
         <ShellContent Title="Registro"
                   ContentTemplate="{DataTemplate views:Registro}"/>
         <ShellContent Title="Seccion"
                   ContentTemplate="{DataTemplate views:Seccion}"/>
+        <ShellContent Title="Escaener Url"
+                  ContentTemplate="{DataTemplate views:URl}"/>
     </FlyoutItem>
 
 </Shell>
