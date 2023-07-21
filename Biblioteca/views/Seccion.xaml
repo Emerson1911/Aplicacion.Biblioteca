@@ -47,7 +47,9 @@
                     <Label Text="Sign Up" 
                            FontSize="18" FontAttributes="Bold"
                            TextColor="Blue" />
-
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignUp"/>
+                    </HorizontalStackLayout.GestureRecognizers>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 

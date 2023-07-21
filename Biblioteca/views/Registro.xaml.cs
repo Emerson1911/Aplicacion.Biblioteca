@@ -6,4 +6,9 @@ public partial class Registro : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void TapGestureRecognizer_Tapped_For_SingIn(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("//Seccion");
+    }
 }

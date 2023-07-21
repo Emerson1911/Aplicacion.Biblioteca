@@ -28,9 +28,11 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Registro"
-                  ContentTemplate="{DataTemplate views:Registro}"/>
+                  ContentTemplate="{DataTemplate views:Registro}"
+                      Route="Registro"/>
         <ShellContent Title="Seccion"
-                  ContentTemplate="{DataTemplate views:Seccion}"/>
+                  ContentTemplate="{DataTemplate views:Seccion}"
+                      Route="Seccion"/>
         <ShellContent Title="Escaener Url"
                   ContentTemplate="{DataTemplate views:URl}"/>
     </FlyoutItem>
