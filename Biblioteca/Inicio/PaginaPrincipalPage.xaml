@@ -34,26 +34,42 @@
             
             <Style x:Key="SearchContainerStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="{StaticResource SearchBarColor}"/>
+                <Setter Property="BorderColor" Value="{StaticResource SearchBarColor}"/>
                 <Setter Property="CornerRadius" Value="18"/>
                 <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="HeightRequest" Value="40" />
                 <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0, 0, 12, 0" />
             </Style>
 
 
             <Style x:Key="SearchBarStyle" TargetType="SearchBar">
                 <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
 
-
-                <Style x:Key="FilterContainerStyle" TargetType="Frame">
+            <Style x:Key="FilterContainerStyle" TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="18"/>
                 <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="Padding" Value="4"/>
+            </Style>
+
+            <Style x:Key="FilterImagestyle" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFill"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
             
         </ResourceDictionary>
     </ContentPage.Resources>
+    
+    
     <Grid
         RowDefinitions="100, 60, *"
         BackgroundColor="{StaticResource PageBackgroundColor}">
@@ -81,6 +97,7 @@
             <Frame
                 Style="{StaticResource SearchContainerStyle}">
                 <SearchBar 
+                    Placeholder="Cleansers"
                     Style="{StaticResource SearchBarStyle}"/>
             </Frame>
             <Frame
@@ -89,5 +106,11 @@
                 <Image Source="miya.jpg" />
             </Frame>
         </Grid>
+        <!-- Libros para Prestas -->
+        <ScrollView
+            Grid.Row="2">
+            
+            
+        </ScrollView>
     </Grid>
 </ContentPage>

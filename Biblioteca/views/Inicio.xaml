@@ -2,11 +2,120 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biblioteca.views.Inicio"
-             Title="Inicio">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Inicio"
+             >
+    <!--Pagina Principal-->
+    <!--Pagina para buscar lo mas famosos en libros -->
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <Color x:Key="PageBackgroundColor">#EBEAEF</Color>
+
+                <Style x:Key="SectionContainerStyle" TargetType="Grid">
+                    <Setter Property="Margin" Value="12, 0"/>
+                </Style>
+
+
+                <Style x:Key="TitleTextStyle" TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontFamily" Value="Fallingsky"/>
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                </Style>
+
+                <Style x:Key="ProfilePictureContainerStyle" TargetType="Frame">
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="WidthRequest" Value="40"/>
+                    <Setter Property="HasShadow" Value="False"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="HorizontalOptions" Value="End"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                </Style>
+
+                <Color x:Key="SearchBarColor">#bdbdbd</Color>
+
+                <Style x:Key="SearchContainerStyle" TargetType="Frame">
+                    <Setter Property="BackgroundColor" Value="{StaticResource SearchBarColor}"/>
+                    <Setter Property="BorderColor" Value="{StaticResource SearchBarColor}"/>
+                    <Setter Property="CornerRadius" Value="18"/>
+                    <Setter Property="HasShadow" Value="False"/>
+                    <Setter Property="HeightRequest" Value="40" />
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="0, 0, 12, 0" />
+                </Style>
+
+
+                <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="TextColor" Value="Black"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                </Style>
+
+                <Style x:Key="FilterContainerStyle" TargetType="Frame">
+                    <Setter Property="BackgroundColor" Value="White"/>
+                    <Setter Property="BorderColor" Value="Gray"/>
+                    <Setter Property="CornerRadius" Value="18"/>
+                    <Setter Property="HasShadow" Value="False"/>
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="WidthRequest" Value="40"/>
+                    <Setter Property="Padding" Value="4"/>
+                </Style>
+
+                <Style x:Key="FilterImagestyle" TargetType="Image">
+                    <Setter Property="Aspect" Value="AspectFill"/>
+                    <Setter Property="HorizontalOptions" Value="Center"/>
+                    <Setter Property="VerticalOptions" Value="Center"/>
+                </Style>
+
+            </ResourceDictionary>
+        </ContentPage.Resources>
+
+
+        <Grid
+        RowDefinitions="100, 60, *"
+        BackgroundColor="{StaticResource PageBackgroundColor}">
+            
+            <!--HEADER -->
+                
+            <Grid ColumnDefinitions="Auto,  *"
+              Style="{StaticResource SectionContainerStyle}">
+                <Label 
+                Grid.ColumnSpan="2"
+                Text="Search Product"
+                Style="{StaticResource TitleTextStyle}"/>
+
+                <Frame 
+                Grid.Column="1"
+                Style="{StaticResource ProfilePictureContainerStyle}">
+                    <Image Source="miya.jpg" />
+                </Frame>
+                
+                <!--Buscador -->
+            </Grid>
+
+            <Grid
+            Grid.Row="1"
+            ColumnDefinitions="*, Auto"
+            Style="{StaticResource SectionContainerStyle}">
+                <Frame
+                Style="{StaticResource SearchContainerStyle}">
+                    <SearchBar 
+                    Placeholder="Cleansers"
+                    Style="{StaticResource SearchBarStyle}"/>
+                </Frame>
+                <Frame
+                Grid.Column="1"
+                Style="{StaticResource FilterContainerStyle}">
+                    <Image Source="miya.jpg" />
+                </Frame>
+            </Grid>
+            <!-- Libros para Prestas -->
+            <ScrollView
+            Grid.Row="2">
+
+
+            </ScrollView>
+        </Grid>
+    
 </ContentPage>
