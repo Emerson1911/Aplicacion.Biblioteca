@@ -3,10 +3,91 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biblioteca.Inicio.PaginaPrincipalPage"
              Title="PaginaPrincipalPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <!--Pagina Principal-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#EBEAEF</Color>
+
+            <Style x:Key="SectionContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="12, 0"/>
+            </Style>
+                   
+
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="Fallingsky"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            
+            <Style x:Key="ProfilePictureContainerStyle" TargetType="Frame">
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="WidthRequest" Value="40"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Color x:Key="SearchBarColor">#F9F9F9</Color>
+            
+            <Style x:Key="SearchContainerStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource SearchBarColor}"/>
+                <Setter Property="CornerRadius" Value="18"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+
+
+            <Style x:Key="SearchBarStyle" TargetType="SearchBar">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+
+                <Style x:Key="FilterContainerStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="18"/>
+                <Setter Property="HasShadow" Value="False"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid
+        RowDefinitions="100, 60, *"
+        BackgroundColor="{StaticResource PageBackgroundColor}">
+        <!-- Header -->
+
+        <Grid ColumnDefinitions="Auto,  *"
+              Style="{StaticResource SectionContainerStyle}">
+            <Label 
+                Grid.ColumnSpan="2"
+                Text="Search Product"
+                Style="{StaticResource TitleTextStyle}"/>
+
+            <Frame 
+                Grid.Column="1"
+                Style="{StaticResource ProfilePictureContainerStyle}">
+                <Image Source="miya.jpg" />
+            </Frame>
+            <!-- Search-->
+        </Grid>
+            
+        <Grid
+            Grid.Row="1"
+            ColumnDefinitions="*, Auto"
+            Style="{StaticResource SectionContainerStyle}">
+            <Frame
+                Style="{StaticResource SearchContainerStyle}">
+                <SearchBar 
+                    Style="{StaticResource SearchBarStyle}"/>
+            </Frame>
+            <Frame
+                Grid.Column="1"
+                Style="{StaticResource FilterContainerStyle}">
+                <Image Source="miya.jpg" />
+            </Frame>
+        </Grid>
+    </Grid>
 </ContentPage>
