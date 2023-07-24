@@ -12,7 +12,7 @@
             <Grid BackgroundColor="Red"
                   HeightRequest="150">
                 <Image Aspect="AspectFill"
-                       Source="miya.jpg"
+                       Source="fox1.jpeg"
                        Opacity="0.9"/>
                 <Label Text="Biblioteca"
                        TextColor="White"
