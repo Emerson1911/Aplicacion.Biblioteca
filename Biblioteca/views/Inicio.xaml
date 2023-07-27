@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Viewmodels="clr-namespace:Biblioteca.ViewModels"
+             xmlns:model="clr-namespace:Biblioteca.Models"
+             x:DataType="Viewmodels:MyBreakFastsViewModel"
              x:Class="Biblioteca.views.Inicio"
-             Title="Inicio"
-             >
+             Title="Inicio">
+    
     <!--Pagina Principal-->
     <!--Pagina para buscar lo mas famosos en libros -->
         <ContentPage.Resources>
@@ -71,10 +74,17 @@
             </ResourceDictionary>
         </ContentPage.Resources>
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="AUTO"/>
+        </Grid.RowDefinitions>
 
         <Grid
-        RowDefinitions="100, 60, *"
-        BackgroundColor="{StaticResource PageBackgroundColor}">
+        RowDefinitions="90, 41, *"
+        >
             
             <!--HEADER -->
                 
@@ -82,40 +92,123 @@
               Style="{StaticResource SectionContainerStyle}">
                 <Label 
                 Grid.ColumnSpan="2"
-                Text="Search Product"
+                Text="Famous Books"
                 Style="{StaticResource TitleTextStyle}"/>
 
                 <Frame 
                 Grid.Column="1"
                 Style="{StaticResource ProfilePictureContainerStyle}">
-                    <Image Source="miya.jpg" />
+                    <Image Source="fox1.jpeg" />
+
+                   
                 </Frame>
                 
                 <!--Buscador -->
             </Grid>
 
-            <Grid
+        <Grid
             Grid.Row="1"
             ColumnDefinitions="*, Auto"
             Style="{StaticResource SectionContainerStyle}">
-                <Frame
+            <Frame
                 Style="{StaticResource SearchContainerStyle}">
-                    <SearchBar 
-                    Placeholder="Cleansers"
+                <SearchBar 
+                    Placeholder="Search"
                     Style="{StaticResource SearchBarStyle}"/>
-                </Frame>
-                <Frame
+            </Frame>
+            <Frame
                 Grid.Column="1"
                 Style="{StaticResource FilterContainerStyle}">
-                    <Image Source="miya.jpg" />
+                    <Image Source="menu.png" />
+
                 </Frame>
-            </Grid>
-            <!-- Libros para Prestas -->
-            <ScrollView
-            Grid.Row="2">
-
-
-            </ScrollView>
         </Grid>
-    
+    </Grid>
+
+               <!-- Tarjetas de los libros-->
+        <CollectionView ItemsSource="{Binding Breakfasts}"
+                        Grid.Row="2"
+                        >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Breakfast" >
+                    <Border MinimumHeightRequest="315" Stroke="#efefef">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding Image}"
+                                   Aspect="AspectFill"/>
+
+                            <Grid Grid.Column="1" Padding="16">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="AUTO"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Nombre-->
+                                <Label Text="{Binding Name}"
+                                       FontSize="24"
+                                       FontFamily="RobotoBold"/>
+
+                                
+
+
+                                <!-- Descripcion Precio-->
+                                <Label Text="{Binding Description}"
+                                       Grid.Row="2"
+                                       Padding="0,8,0,0"
+                                       TextColor="#555"/>
+
+
+                                <!-- Categoria-->
+                                <FlexLayout BindableLayout.ItemsSource="{Binding Savory}"
+                                            Grid.Row="3"
+                                            Wrap="Wrap"
+                                            AlignItems="Start">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="6"
+                                                   Margin="1"
+                                                   BorderColor="Transparent"
+                                                   BackgroundColor="#ecf7ff">
+                                                <Label Text="{Binding .}"/>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
+                                <!-- Categoria Especial -->
+                                <FlexLayout BindableLayout.ItemsSource="{Binding Sweet}"
+                                            Grid.Row="4"
+                                            Wrap="Wrap"
+                                            AlignItems="Start">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame Padding="6"
+                                                   Margin="1"
+                                                   BorderColor="Transparent"
+                                                   BackgroundColor="#ecf7ff">
+                                                <Label Text="{Binding .}"/>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
+                                <!-- Boton para ver mas sobre los libos-->
+                                <Button Grid.Row="5" Text="Ver Mas" HorizontalOptions="End" Margin="10"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
 </ContentPage>

@@ -49,10 +49,12 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\fox1.jpeg" />
+	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\miya.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
