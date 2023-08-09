@@ -201,8 +201,8 @@
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </FlexLayout>
-                                <!-- Boton para ver mas sobre los libos-->
-                                <Button Grid.Row="5" Text="Ver Mas" HorizontalOptions="End" Margin="10"/>
+                                <!-- Boton para ver mas sobre los libos (Imcompleto falta que vayan a su respectivos libros)-->
+                                <Button Grid.Row="5" Text="Ver Mas" HorizontalOptions="End" Margin="10" Clicked="Button_Clicked"/>
                             </Grid>
                         </Grid>
                     </Border>

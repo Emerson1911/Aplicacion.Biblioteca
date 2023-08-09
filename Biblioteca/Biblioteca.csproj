@@ -48,9 +48,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\fontello.ttf" />
+	  <None Remove="Resources\Fonts\Rubik-Italic-VariableFont_wght.ttf" />
+	  <None Remove="Resources\Fonts\Rubik-VariableFont_wght.ttf" />
 	  <None Remove="Resources\Images\fox1.jpeg" />
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\miya.jpg" />
+	  <None Remove="Resources\Images\principito.jpeg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -60,6 +64,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Inicio\PaginaPrincipalPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Shopping\Shop_Book_1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="views\Inicio.xaml">
