@@ -66,7 +66,7 @@
 	  <MauiXaml Update="Inicio\PaginaPrincipalPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Shopping\Shop_Book_1.xaml">
+	  <MauiXaml Update="Shop\Compras.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="views\Inicio.xaml">

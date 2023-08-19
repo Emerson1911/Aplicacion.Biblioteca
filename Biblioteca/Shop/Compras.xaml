@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biblioteca.Shop.Compras"
+             Title="Compras">
+    
+    <!--Formulario de Compras -->
+    <VerticalStackLayout
+            Margin="0,80,0,0">
+ 
+        <Picker Title="Seleccionar Metodo de pago" ItemsSource="{Binding CountryList}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" Margin="30"/>
+
+        <Entry 
+                Placeholder="Numeros de la Tarjeta" 
+                TextColor="#292929"
+                WidthRequest="300" 
+                FontSize="20"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+
+        <Entry 
+                Placeholder="PIN" 
+                TextColor="#292929"
+                IsPassword="True"
+                WidthRequest="50" 
+                FontSize="20" 
+                HorizontalOptions="Start"
+                Margin="30,0,0,0"/>
+
+
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
